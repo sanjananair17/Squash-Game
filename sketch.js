@@ -27,23 +27,18 @@ function draw() {
   edges = createEdgeSprites();
   
   /* Allow the ball sprite to bounceOff the left, top and bottom edges only, leaving the right edge of the canvas to be open. */
-  if (ball.isTouching(edges[0]) || ball.isTouching(edges[2]) || ball.isTouching(edges[3])) {
     ball.bounceOff(edges[0]);
     ball.bounceOff(edges[2]);
     ball.bounceOff(edges[3]);
-  }
 
   /* Allow the ball to bounceoff from the paddle */
-  if (ball.isTouching(paddle)) {
       ball.bounceOff(paddle,randomVelocity)
   
   /* Also assign a collision callback function, so that the ball can have a random y velocity, making the game interesting */
-  }
-  /* Prevent the paddle from going out of the edges */ 
-  if (paddle.isTouching(edges[2]) || paddle.isTouching(edges[3])) {
+    
+  /* Prevent the paddle from going out of the edges */
     paddle.collide(edges[2]);
     paddle.collide(edges[3]);
-  }  
   
   if(keyDown(UP_ARROW))
   {
